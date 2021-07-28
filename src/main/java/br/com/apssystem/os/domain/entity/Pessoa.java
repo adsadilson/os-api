@@ -35,7 +35,7 @@ public abstract class Pessoa {
 	private String nome;
 
 	@EqualsAndHashCode.Include
-	@Column(nullable = false, length = 11)
+	@Column(nullable = false, length = 14)
 	@CPF
 	private String cpf;
 

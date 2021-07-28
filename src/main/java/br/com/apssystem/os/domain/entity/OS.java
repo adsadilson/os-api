@@ -2,6 +2,7 @@ package br.com.apssystem.os.domain.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -44,11 +45,14 @@ public class OS {
 	private LocalDate dataFechamento;
 
 	@Enumerated(EnumType.STRING)
+	@Column(length = 35)
 	private Prioridade prioridade;
 
+	@Column(length = 200)
 	private String observacoes;
 
 	@Enumerated(EnumType.STRING)
+	@Column(length = 10)
 	private Status status;
 
 	@ManyToOne
