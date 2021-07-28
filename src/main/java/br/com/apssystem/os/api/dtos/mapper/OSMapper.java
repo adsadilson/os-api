@@ -7,13 +7,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.apssystem.bookstore.api.dtos.entity.LivroEntity;
-import br.com.apssystem.bookstore.api.dtos.input.LivroInput;
-import br.com.apssystem.bookstore.domain.entity.Categoria;
-import br.com.apssystem.bookstore.domain.entity.Editora;
-import br.com.apssystem.bookstore.domain.entity.Livro;
-import br.com.apssystem.bookstore.domain.service.CategoriaService;
-import br.com.apssystem.bookstore.domain.service.EditoraService;
+import br.com.apssystem.os.api.dtos.entity.OSEntity;
+import br.com.apssystem.os.api.dtos.input.OSInput;
+import br.com.apssystem.os.domain.entity.OS;
 
 @Component
 public class OSMapper {
@@ -21,29 +17,19 @@ public class OSMapper {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	@Autowired
-	private CategoriaService categoriaService;
-
-	@Autowired
-	private EditoraService editoraService;
-
-	public LivroEntity toEntity(Livro obj) {
-		return modelMapper.map(obj, LivroEntity.class);
+	public OSEntity toEntity(OS obj) {
+		return modelMapper.map(obj, OSEntity.class);
 	}
 
-	public List<LivroEntity> toCollectionEntity(List<Livro> objs) {
+	public List<OSEntity> toCollectionEntity(List<OS> objs) {
 		return objs.stream().map(obj -> toEntity(obj)).collect(Collectors.toList());
 	}
 
-	public Livro toDomain(LivroInput input) {
-		return modelMapper.map(input, Livro.class);
+	public OS toDomain(OSInput input) {
+		return modelMapper.map(input, OS.class);
 	}
 
-	public void copyToDomainObject(LivroInput input, Livro obj) {
-		Categoria cat = categoriaService.buscarPorId(obj.getCategoria().getId());
-		obj.setCategoria(cat);
-		Editora edi = editoraService.buscarPorId(obj.getEditora().getId());
-		obj.setEditora(edi);
+	public void copyToDomainObject(OSInput input, OS obj) {
 		modelMapper.map(input, obj);
 	}
 
