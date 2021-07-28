@@ -31,7 +31,8 @@ public class SpringFoxConfig implements WebMvcConfigurer{
 				//.paths(PathSelectors.ant("/restaurante/*"))
 				.build()
 				.apiInfo(apiInfo())
-				.tags(new Tag("Cliente", "Gerencia os clientes"));
+				.tags(new Tag("Cliente", "Gerencia os clientes"))
+				.tags(new Tag("Tecnico", "Gerencia os tecnicos"));
 	}
 	
 	public ApiInfo apiInfo() {
