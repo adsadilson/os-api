@@ -1,4 +1,4 @@
-package br.com.apssystem.os.api.dtos.mapper;
+package br.com.apssystem.os.core.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

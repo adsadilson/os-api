@@ -41,8 +41,8 @@ public class ClienteResource {
 
 	@ApiOperation("Atualizar uma cliente")
 	@PutMapping("/{id}")
-	public ResponseEntity<ClienteEntity> update(@RequestBody ClienteInput input, @PathVariable Long id) {
-		Cliente entity = clienteService.buscarPorId(id);
+	public ResponseEntity<ClienteEntity> update(@RequestBody ClienteInput input) {
+		Cliente entity = clienteService.buscarPorId(input.getId());
 		mapper.copyToDomainObject(input, entity);
 		clienteService.autalizar(entity);
 		return ResponseEntity.ok().body(mapper.toEntity(entity));

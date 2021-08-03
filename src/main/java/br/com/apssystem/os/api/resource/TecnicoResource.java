@@ -42,8 +42,8 @@ public class TecnicoResource {
 
 	@ApiOperation("Atualizar uma tecnico")
 	@PutMapping("/{id}")
-	public ResponseEntity<TecnicoEntity> update(@RequestBody TecnicoInput input, @PathVariable Long id) {
-		Tecnico entity = tecnicoService.buscarPorId(id);
+	public ResponseEntity<TecnicoEntity> atualizar(@RequestBody TecnicoInput input) {
+		Tecnico entity = tecnicoService.buscarPorId(input.getId());
 		mapper.copyToDomainObject(input, entity);
 		tecnicoService.autalizar(entity);
 		return ResponseEntity.ok().body(mapper.toEntity(entity));
