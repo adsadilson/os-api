@@ -13,6 +13,8 @@ import lombok.Data;
 
 @Data
 public class OSInput {
+	
+	private Long id;
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataAbertura;
